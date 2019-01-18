@@ -25,6 +25,7 @@
  <Project>
   <ProjectSessionItem path="atsaml21_hello_world"/>
   <ProjectSessionItem path="atsaml21_hello_world;atsaml21_hello_world"/>
+  <ProjectSessionItem path="atsaml21_hello_world;atsaml21_hello_world;CMSIS Files"/>
   <ProjectSessionItem path="atsaml21_hello_world;atsaml21_hello_world;Source Files"/>
  </Project>
  <Register1>
@@ -62,7 +63,9 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="10" useTextEdit="1" useBinaryEdit="0" left="0" path="main.c" selected="1" top="1" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="10" useTextEdit="1" useBinaryEdit="0" left="0" path="main.c" selected="0" top="1" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="5" y="72" useTextEdit="1" useBinaryEdit="0" left="0" path="SAM-L/CMSIS/Device/SAML21/Source/system_saml21.c" selected="0" top="41" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="11" y="19" useTextEdit="1" useBinaryEdit="0" left="0" path="delay.h" selected="1" top="0" codecName="Default"/>
  </Files>
  <ARMCrossStudioWindow activeProject="atsaml21_hello_world" fileDialogDefaultFilter="*.h" autoConnectTarget="J-Link" buildConfiguration="Release" debugSearchFileMap="" fileDialogInitialDirectory="/home/wat/Segger_Projects/ATSAML21_DELAY" debugSearchPath="" autoConnectCapabilities="3199"/>
 </session>
