@@ -1,4 +1,4 @@
-#define F_CPU __SYSTEM_CLOCK//4000000UL default
+#define F_CPU 16000000 
 
 #ifndef DELAY_H_HEADER
 #define DELAY_H_HEADER

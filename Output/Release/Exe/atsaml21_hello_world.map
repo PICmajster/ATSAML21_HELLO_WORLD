@@ -2490,19 +2490,19 @@ Linker script and memory map
                 0x0000000000000001                . = ASSERT (((__init_rodata_start__ == __init_rodata_end__) || ((__init_rodata_end__ >= __FLASH_segment_start__) && (__init_rodata_end__ <= __FLASH_segment_end__))), error: .init_rodata is too large to fit in FLASH memory segment)
                 0x0000000000000290                __text_load_start__ = ALIGN (__init_rodata_end__, 0x4)
 
-.text           0x0000000000000290       0x58
+.text           0x0000000000000290       0x70
                 0x0000000000000290                __text_start__ = .
  *(.text .text.* .glue_7t .glue_7 .gnu.linkonce.t.* .gcc_except_table .ARM.extab* .gnu.linkonce.armextab.*)
  .glue_7        0x0000000000000290        0x0 linker stubs
  .glue_7t       0x0000000000000290        0x0 linker stubs
- .text.main     0x0000000000000290       0x44 Output/atsaml21_hello_world Release/Obj/main.o
+ .text.main     0x0000000000000290       0x5c Output/atsaml21_hello_world Release/Obj/main.o
                 0x0000000000000290                main
  .text.SysTick_Handler
-                0x00000000000002d4       0x14 Output/atsaml21_hello_world Release/Obj/main.o
-                0x00000000000002d4                SysTick_Handler
-                0x00000000000002e8                __text_end__ = (__text_start__ + SIZEOF (.text))
-                0x0000000000000058                __text_size__ = SIZEOF (.text)
-                0x00000000000002e8                __text_load_end__ = __text_end__
+                0x00000000000002ec       0x14 Output/atsaml21_hello_world Release/Obj/main.o
+                0x00000000000002ec                SysTick_Handler
+                0x0000000000000300                __text_end__ = (__text_start__ + SIZEOF (.text))
+                0x0000000000000070                __text_size__ = SIZEOF (.text)
+                0x0000000000000300                __text_load_end__ = __text_end__
 
 .vfp11_veneer   0x0000000100000000        0x0
  .vfp11_veneer  0x0000000100000000        0x0 linker stubs
@@ -2516,59 +2516,59 @@ Linker script and memory map
 .rel.dyn        0x0000000000000000        0x0
  .rel.iplt      0x0000000000000000        0x0 Output/atsaml21_hello_world Release/Obj/system_saml21.o
                 0x0000000000000001                . = ASSERT (((__text_start__ == __text_end__) || ((__text_end__ >= __FLASH_segment_start__) && (__text_end__ <= __FLASH_segment_end__))), error: .text is too large to fit in FLASH memory segment)
-                0x00000000000002e8                __dtors_load_start__ = ALIGN (__text_end__, 0x4)
+                0x0000000000000300                __dtors_load_start__ = ALIGN (__text_end__, 0x4)
 
-.dtors          0x00000000000002e8        0x0
-                0x00000000000002e8                __dtors_start__ = .
+.dtors          0x0000000000000300        0x0
+                0x0000000000000300                __dtors_start__ = .
  *(SORT_BY_NAME(.dtors.*))
  *(.dtors)
  *(.fini_array)
  *(SORT_BY_NAME(.fini_array.*))
-                0x00000000000002e8                __dtors_end__ = (__dtors_start__ + SIZEOF (.dtors))
+                0x0000000000000300                __dtors_end__ = (__dtors_start__ + SIZEOF (.dtors))
                 0x0000000000000000                __dtors_size__ = SIZEOF (.dtors)
-                0x00000000000002e8                __dtors_load_end__ = __dtors_end__
+                0x0000000000000300                __dtors_load_end__ = __dtors_end__
                 0x0000000000000001                . = ASSERT (((__dtors_start__ == __dtors_end__) || ((__dtors_end__ >= __FLASH_segment_start__) && (__dtors_end__ <= __FLASH_segment_end__))), error: .dtors is too large to fit in FLASH memory segment)
-                0x00000000000002e8                __ctors_load_start__ = ALIGN (__dtors_end__, 0x4)
+                0x0000000000000300                __ctors_load_start__ = ALIGN (__dtors_end__, 0x4)
 
-.ctors          0x00000000000002e8        0x4
-                0x00000000000002e8                __ctors_start__ = .
+.ctors          0x0000000000000300        0x4
+                0x0000000000000300                __ctors_start__ = .
  *(SORT_BY_NAME(.ctors.*))
  *(.ctors)
  *(.init_array)
- .init_array    0x00000000000002e8        0x4 Output/atsaml21_hello_world Release/Obj/SAM-L_Startup.o
+ .init_array    0x0000000000000300        0x4 Output/atsaml21_hello_world Release/Obj/SAM-L_Startup.o
  *(SORT_BY_NAME(.init_array.*))
-                0x00000000000002ec                __ctors_end__ = (__ctors_start__ + SIZEOF (.ctors))
+                0x0000000000000304                __ctors_end__ = (__ctors_start__ + SIZEOF (.ctors))
                 0x0000000000000004                __ctors_size__ = SIZEOF (.ctors)
-                0x00000000000002ec                __ctors_load_end__ = __ctors_end__
+                0x0000000000000304                __ctors_load_end__ = __ctors_end__
                 0x0000000000000001                . = ASSERT (((__ctors_start__ == __ctors_end__) || ((__ctors_end__ >= __FLASH_segment_start__) && (__ctors_end__ <= __FLASH_segment_end__))), error: .ctors is too large to fit in FLASH memory segment)
-                0x00000000000002ec                __rodata_load_start__ = ALIGN (__ctors_end__, 0x4)
+                0x0000000000000304                __rodata_load_start__ = ALIGN (__ctors_end__, 0x4)
 
-.rodata         0x00000000000002ec        0x0
-                0x00000000000002ec                __rodata_start__ = .
+.rodata         0x0000000000000304        0x0
+                0x0000000000000304                __rodata_start__ = .
  *(.rodata .rodata.* .gnu.linkonce.r.*)
-                0x00000000000002ec                __rodata_end__ = (__rodata_start__ + SIZEOF (.rodata))
+                0x0000000000000304                __rodata_end__ = (__rodata_start__ + SIZEOF (.rodata))
                 0x0000000000000000                __rodata_size__ = SIZEOF (.rodata)
-                0x00000000000002ec                __rodata_load_end__ = __rodata_end__
+                0x0000000000000304                __rodata_load_end__ = __rodata_end__
                 0x0000000000000001                . = ASSERT (((__rodata_start__ == __rodata_end__) || ((__rodata_end__ >= __FLASH_segment_start__) && (__rodata_end__ <= __FLASH_segment_end__))), error: .rodata is too large to fit in FLASH memory segment)
-                0x00000000000002ec                __ARM.exidx_load_start__ = ALIGN (__rodata_end__, 0x4)
+                0x0000000000000304                __ARM.exidx_load_start__ = ALIGN (__rodata_end__, 0x4)
 
-.ARM.exidx      0x00000000000002ec        0x0
-                0x00000000000002ec                __ARM.exidx_start__ = .
-                0x00000000000002ec                __exidx_start = __ARM.exidx_start__
+.ARM.exidx      0x0000000000000304        0x0
+                0x0000000000000304                __ARM.exidx_start__ = .
+                0x0000000000000304                __exidx_start = __ARM.exidx_start__
  *(.ARM.exidx .ARM.exidx.*)
-                0x00000000000002ec                __ARM.exidx_end__ = (__ARM.exidx_start__ + SIZEOF (.ARM.exidx))
+                0x0000000000000304                __ARM.exidx_end__ = (__ARM.exidx_start__ + SIZEOF (.ARM.exidx))
                 0x0000000000000000                __ARM.exidx_size__ = SIZEOF (.ARM.exidx)
-                0x00000000000002ec                __exidx_end = __ARM.exidx_end__
-                0x00000000000002ec                __ARM.exidx_load_end__ = __ARM.exidx_end__
+                0x0000000000000304                __exidx_end = __ARM.exidx_end__
+                0x0000000000000304                __ARM.exidx_load_end__ = __ARM.exidx_end__
                 0x0000000000000001                . = ASSERT (((__ARM.exidx_start__ == __ARM.exidx_end__) || ((__ARM.exidx_end__ >= __FLASH_segment_start__) && (__ARM.exidx_end__ <= __FLASH_segment_end__))), error: .ARM.exidx is too large to fit in FLASH memory segment)
-                0x00000000000002ec                __fast_load_start__ = ALIGN (__ARM.exidx_end__, 0x4)
+                0x0000000000000304                __fast_load_start__ = ALIGN (__ARM.exidx_end__, 0x4)
 
-.fast           0x0000000020000000        0x0 load address 0x00000000000002ec
+.fast           0x0000000020000000        0x0 load address 0x0000000000000304
                 0x0000000020000000                __fast_start__ = .
  *(.fast .fast.*)
                 0x0000000020000000                __fast_end__ = (__fast_start__ + SIZEOF (.fast))
                 0x0000000000000000                __fast_size__ = SIZEOF (.fast)
-                0x00000000000002ec                __fast_load_end__ = (__fast_load_start__ + SIZEOF (.fast))
+                0x0000000000000304                __fast_load_end__ = (__fast_load_start__ + SIZEOF (.fast))
                 0x0000000000000001                . = ASSERT (((__fast_load_start__ == __fast_load_end__) || ((__fast_load_end__ >= __FLASH_segment_start__) && (__fast_load_end__ <= __FLASH_segment_end__))), error: .fast is too large to fit in FLASH memory segment)
 
 .fast_run       0x0000000020000000        0x0
@@ -2578,9 +2578,9 @@ Linker script and memory map
                 0x0000000000000000                __fast_run_size__ = SIZEOF (.fast_run)
                 0x0000000020000000                __fast_run_load_end__ = __fast_run_end__
                 0x0000000000000001                . = ASSERT (((__fast_run_start__ == __fast_run_end__) || ((__fast_run_end__ >= __RAM_segment_start__) && (__fast_run_end__ <= __RAM_segment_end__))), error: .fast_run is too large to fit in RAM memory segment)
-                0x00000000000002ec                __data_load_start__ = ALIGN ((__fast_load_start__ + SIZEOF (.fast)), 0x4)
+                0x0000000000000304                __data_load_start__ = ALIGN ((__fast_load_start__ + SIZEOF (.fast)), 0x4)
 
-.data           0x0000000020000000        0x4 load address 0x00000000000002ec
+.data           0x0000000020000000        0x4 load address 0x0000000000000304
                 0x0000000020000000                __data_start__ = .
  *(.data .data.* .gnu.linkonce.d.*)
  .data.SystemCoreClock
@@ -2588,13 +2588,13 @@ Linker script and memory map
                 0x0000000020000000                SystemCoreClock
                 0x0000000020000004                __data_end__ = (__data_start__ + SIZEOF (.data))
                 0x0000000000000004                __data_size__ = SIZEOF (.data)
-                0x00000000000002f0                __data_load_end__ = (__data_load_start__ + SIZEOF (.data))
+                0x0000000000000308                __data_load_end__ = (__data_load_start__ + SIZEOF (.data))
 
 .igot.plt       0x0000000100000000        0x0
  .igot.plt      0x0000000100000000        0x0 Output/atsaml21_hello_world Release/Obj/system_saml21.o
                 0x0000000000000001                . = ASSERT (((__data_load_start__ == __data_load_end__) || ((__data_load_end__ >= __FLASH_segment_start__) && (__data_load_end__ <= __FLASH_segment_end__))), error: .data is too large to fit in FLASH memory segment)
 
-.data_run       0x0000000020000000        0x4 load address 0x00000000000002ec
+.data_run       0x0000000020000000        0x4 load address 0x0000000000000304
                 0x0000000020000000                __data_run_start__ = .
                 0x0000000020000004                . = MAX ((__data_run_start__ + SIZEOF (.data)), .)
  *fill*         0x0000000020000000        0x4 
@@ -2621,16 +2621,16 @@ Linker script and memory map
                 0x0000000000000000                __tbss_size__ = SIZEOF (.tbss)
                 0x0000000020000004                __tbss_load_end__ = __tbss_end__
                 0x0000000000000001                . = ASSERT (((__tbss_start__ == __tbss_end__) || ((__tbss_end__ >= __RAM_segment_start__) && (__tbss_end__ <= __RAM_segment_end__))), error: .tbss is too large to fit in RAM memory segment)
-                0x00000000000002f0                __tdata_load_start__ = ALIGN ((__data_load_start__ + SIZEOF (.data)), 0x4)
+                0x0000000000000308                __tdata_load_start__ = ALIGN ((__data_load_start__ + SIZEOF (.data)), 0x4)
 
-.tdata          0x0000000020000004        0x0 load address 0x00000000000002f0
+.tdata          0x0000000020000004        0x0 load address 0x0000000000000308
                 0x0000000020000004                __tdata_start__ = .
  *(.tdata .tdata.*)
                 0x0000000020000004                __tdata_end__ = (__tdata_start__ + SIZEOF (.tdata))
                 0x0000000000000000                __tdata_size__ = SIZEOF (.tdata)
-                0x00000000000002f0                __tdata_load_end__ = (__tdata_load_start__ + SIZEOF (.tdata))
-                0x00000000000002f0                __FLASH_segment_used_end__ = (ALIGN ((__data_load_start__ + SIZEOF (.data)), 0x4) + SIZEOF (.tdata))
-                0x00000000000002f0                __FLASH_segment_used_size__ = (__FLASH_segment_used_end__ - __FLASH_segment_start__)
+                0x0000000000000308                __tdata_load_end__ = (__tdata_load_start__ + SIZEOF (.tdata))
+                0x0000000000000308                __FLASH_segment_used_end__ = (ALIGN ((__data_load_start__ + SIZEOF (.data)), 0x4) + SIZEOF (.tdata))
+                0x0000000000000308                __FLASH_segment_used_size__ = (__FLASH_segment_used_end__ - __FLASH_segment_start__)
                 0x0000000000000001                . = ASSERT (((__tdata_load_start__ == __tdata_load_end__) || ((__tdata_load_end__ >= __FLASH_segment_start__) && (__tdata_load_end__ <= __FLASH_segment_end__))), error: .tdata is too large to fit in FLASH memory segment)
 
 .tdata_run      0x0000000020000004        0x0
