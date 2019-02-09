@@ -27,7 +27,7 @@ OSCCTRL->OSC16MCTRL.bit.FSEL = OSCCTRL_OSC16MCTRL_FSEL_16_Val;
 while(!OSCCTRL->STATUS.bit.OSC16MRDY);
 
 /*Set pin PB11 direction to Output*/
-PORT->Group[1].DIRSET.reg |= PORT_PB11; 
+PORT->Group[1].DIRSET.reg = PORT_PB11; 
 
 /* Set SysTick */
 SysTick_Config(16000000 * 0.5); //0.5s, 16MHz core clock  
@@ -42,5 +42,5 @@ SysTick_Config(16000000 * 0.5); //0.5s, 16MHz core clock
 /* Routime Interrupt */
  __attribute__((interrupt)) void SysTick_Handler(void){
  /*Toggle pin PB11*/
-   PORT->Group[1].OUTTGL.reg |= PORT_PB11; 
+   PORT->Group[1].OUTTGL.reg = PORT_PB11; 
 }
